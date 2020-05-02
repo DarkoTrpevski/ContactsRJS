@@ -1,8 +1,15 @@
 //*Entry point to our backend
 const express = require('express');
-
+// Import our connectDB
+const connectDB = require('./config/db');
 // Init express
 const app = express();
+
+// Connect Database
+connectDB();
+
+// Init Middleware
+app.use(express.json({ extended: false }))
 
 // Add a Route for get request
 app.get('/', (req, res) => {
